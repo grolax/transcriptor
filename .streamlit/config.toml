@@ -1,0 +1,5 @@
+# Streamlit limita el tamaño de subida a 200 MB por defecto. Lo subimos
+# porque este proyecto está pensado para entrevistas, clases y reuniones
+# largas (audio o video crudo puede pesar varios cientos de MB).
+[server]
+maxUploadSize = 1024

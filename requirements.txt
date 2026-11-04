@@ -1,0 +1,10 @@
+streamlit>=1.38
+# gpt-4o-transcribe-diarize (response_format="diarized_json",
+# chunking_strategy) requiere una versión reciente del SDK.
+openai>=2.6.1
+python-dotenv>=1.0
+pydantic>=2.7
+
+# Necesario solo en Python < 3.10, para que pydantic pueda evaluar
+# anotaciones de tipo con la sintaxis "float | None".
+eval_type_backport; python_version < "3.10"

@@ -1,0 +1,22 @@
+# Secretos
+.env
+
+# Entorno virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Archivos temporales de procesamiento (por si alguno queda fuera de /tmp)
+*.wav
+*.mp3.tmp
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Editor / SO
+.DS_Store
+.vscode/
+.idea/
