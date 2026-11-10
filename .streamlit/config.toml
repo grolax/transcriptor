@@ -3,3 +3,26 @@
 # largas (audio o video crudo puede pesar varios cientos de MB).
 [server]
 maxUploadSize = 1024
+
+# Oculta el menú de Streamlit (que permite cambiar a modo oscuro) y el
+# botón "Deploy": el tema claro es una decisión de diseño, no un default.
+[client]
+toolbarMode = "minimal"
+
+# Tema fijo: papel blanco, tinta casi negra y un solo acento (azul tinta).
+# Las fuentes se cargan desde Google Fonts en app/static/style.css.
+[theme]
+base = "light"
+primaryColor = "#1E3AA8"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F5F5F2"
+textColor = "#141414"
+linkColor = "#1E3AA8"
+borderColor = "#D9D9D4"
+showWidgetBorder = true
+baseRadius = "2px"
+buttonRadius = "2px"
+baseFontSize = 16
+font = "'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif"
+headingFont = "'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif"
+codeFont = "'IBM Plex Mono', Menlo, monospace"

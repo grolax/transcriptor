@@ -1,0 +1,322 @@
+/* Transcriptor: todo lo que el bloque [theme] de config.toml no cubre.
+   Paleta: papel #FFFFFF, tinta #141414, gris #6B6B6B, línea #E4E4E0,
+   azul tinta #1E3AA8 (único acento), ocre #8A5A00 (avisos), rojo #B3261E (errores).
+   Espaciado en múltiplos de 8 px. */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --papel: #ffffff;
+  --tinta: #141414;
+  --gris: #6b6b6b;
+  --linea: #e4e4e0;
+  --borde: #d9d9d4;
+  --azul: #1e3aa8;
+  --azul-oscuro: #172d85;
+  --ocre: #8a5a00;
+  --rojo: #b3261e;
+  --mono: "IBM Plex Mono", Menlo, monospace;
+}
+
+/* --- Página: una columna angosta, alineada a la izquierda de sí misma --- */
+
+[data-testid="stHeader"] {
+  background: transparent;
+}
+
+[data-testid="stMainBlockContainer"] {
+  max-width: 44.5rem;
+  padding: 4rem 1rem 4rem;
+}
+
+/* --- Marca y títulos --- */
+
+h1.marca {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  padding: 0 0 1.5rem;
+  margin: 0;
+}
+
+h1.marca .marca-tiempo {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 0.8em;
+  letter-spacing: 0;
+  color: var(--gris);
+  margin-right: 0.35em;
+}
+
+h2.seccion {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  padding: 0;
+  margin: 0 0 0.25rem;
+}
+
+/* Streamlit agrega un ícono de enlace junto a los títulos: aquí sobra. */
+[data-testid="stHeaderActionElements"] {
+  display: none;
+}
+
+hr.corte {
+  border: 0;
+  border-top: 1px solid var(--linea);
+  margin: 1.5rem 0 1rem;
+}
+
+/* --- Textos de apoyo --- */
+
+p.ayuda {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--gris);
+  margin: 0 0 0.5rem;
+}
+
+p.pie {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--gris);
+  border-top: 1px solid var(--linea);
+  padding-top: 1rem;
+  margin: 3rem 0 0;
+}
+
+[data-testid="stWidgetLabel"] p {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* --- Notas al margen: un filete de color y texto, sin recuadro --- */
+
+.nota {
+  border-left: 2px solid var(--gris);
+  padding: 0.125rem 0 0.125rem 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.nota-aviso {
+  border-left-color: var(--ocre);
+  color: var(--ocre);
+}
+
+.nota-error {
+  border-left-color: var(--rojo);
+  color: var(--rojo);
+}
+
+/* --- Campos: fondo de papel y borde fino en vez del relleno gris --- */
+
+[data-testid="stSelectbox"] {
+  max-width: 20rem;
+}
+
+[data-testid="stSelectbox"] [data-baseweb="select"] > div,
+[data-testid="stTextInput"] [data-baseweb="input"],
+[data-testid="stTextInput"] [data-baseweb="base-input"],
+[data-testid="stTextInput"] input,
+[data-testid="stTextArea"] [data-baseweb="textarea"],
+[data-testid="stTextArea"] [data-baseweb="base-input"],
+[data-testid="stTextArea"] textarea {
+  background-color: var(--papel);
+}
+
+[data-testid="stTextInput"] {
+  max-width: 20rem;
+}
+
+/* --- Zona para soltar el archivo --- */
+
+[data-testid="stFileUploaderDropzone"] {
+  background: var(--papel);
+  border: 1px dashed #a3a39e;
+  border-radius: 2px;
+  padding: 1.5rem;
+  transition: border-color 120ms ease-out;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover,
+[data-testid="stFileUploaderDropzone"]:focus-within {
+  border-color: var(--azul);
+  border-style: solid;
+}
+
+/* Streamlit no permite traducir estos textos, así que se ocultan los
+   originales en inglés y se escriben los nuestros con ::before / ::after. */
+[data-testid="stFileUploaderDropzoneInstructions"] > span:first-child {
+  display: none;
+}
+
+[data-testid="stFileUploaderDropzoneInstructions"] > div > span {
+  display: none;
+}
+
+[data-testid="stFileUploaderDropzoneInstructions"] > div::before {
+  content: "Arrastra el archivo hasta aquí";
+  font-size: 1rem;
+  color: var(--tinta);
+}
+
+[data-testid="stFileUploaderDropzone"] button {
+  font-size: 0;
+  background: var(--papel);
+  border: 1px solid var(--tinta);
+  padding: 0.375rem 0.875rem;
+}
+
+[data-testid="stFileUploaderDropzone"] button::after {
+  content: "Elegir archivo";
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--tinta);
+}
+
+[data-testid="stFileUploaderDropzone"] button:hover {
+  background: #f5f5f2;
+  border-color: var(--tinta);
+}
+
+[data-testid="stFileUploaderFile"] {
+  padding-left: 0;
+}
+
+[data-testid="stFileUploaderFileName"] {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+
+/* --- Botones: el azul queda reservado para la acción siguiente --- */
+
+[data-testid="stButton"] button,
+[data-testid="stDownloadButton"] button {
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  min-height: 2.75rem;
+  transition: background-color 120ms ease-out, border-color 120ms ease-out;
+}
+
+[data-testid="stBaseButton-primary"] {
+  background: var(--azul);
+  border-color: var(--azul);
+  color: #ffffff;
+}
+
+[data-testid="stBaseButton-primary"]:hover,
+[data-testid="stBaseButton-primary"]:active {
+  background: var(--azul-oscuro);
+  border-color: var(--azul-oscuro);
+  color: #ffffff;
+}
+
+[data-testid="stButton"] [data-testid="stBaseButton-secondary"],
+[data-testid="stDownloadButton"] [data-testid="stBaseButton-secondary"] {
+  background: var(--papel);
+  border-color: var(--tinta);
+  color: var(--tinta);
+}
+
+[data-testid="stButton"] [data-testid="stBaseButton-secondary"]:hover,
+[data-testid="stDownloadButton"] [data-testid="stBaseButton-secondary"]:hover {
+  background: #f5f5f2;
+  border-color: var(--tinta);
+  color: var(--tinta);
+}
+
+[data-testid="stButton"] button:disabled,
+[data-testid="stButton"] button:disabled:hover {
+  background: var(--papel);
+  border-color: var(--borde);
+  color: #767672;
+  cursor: not-allowed;
+}
+
+.stApp button:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* --- Editor: monoespaciada para que tiempos y hablantes queden en columna --- */
+
+[data-testid="stTextArea"] textarea {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  padding: 1rem 1.125rem;
+  color: var(--tinta);
+}
+
+/* --- Procesando --- */
+
+[data-testid="stSpinner"] {
+  font-size: 0.9375rem;
+  color: var(--tinta);
+}
+
+/* Reloj de tiempo transcurrido, en el mismo formato mm:ss de la
+   transcripción. Es CSS puro: dos contadores animados, uno para los
+   segundos (se repite cada minuto) y otro para los minutos. */
+@property --reloj-seg {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --reloj-min {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes reloj-segundos {
+  from { --reloj-seg: 0; }
+  to { --reloj-seg: 60; }
+}
+
+@keyframes reloj-minutos {
+  from { --reloj-min: 0; }
+  to { --reloj-min: 600; }
+}
+
+.reloj {
+  font-family: var(--mono);
+  color: var(--tinta);
+  counter-reset: reloj-min var(--reloj-min) reloj-seg var(--reloj-seg);
+  animation:
+    reloj-segundos 60s steps(60, end) infinite,
+    reloj-minutos 36000s steps(600, end) forwards;
+}
+
+.reloj::after {
+  content: counter(reloj-min, decimal-leading-zero) ":" counter(reloj-seg, decimal-leading-zero);
+}
+
+/* --- Pantallas angostas --- */
+
+@media (max-width: 640px) {
+  [data-testid="stMainBlockContainer"] {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  [data-testid="stFileUploaderDropzone"] {
+    padding: 1rem;
+  }
+
+  [data-testid="stTextArea"] textarea {
+    font-size: 0.8125rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* El reloj no se detiene: informa, no decora. */
+  .stApp *:not(.reloj) {
+    transition: none !important;
+  }
+}
